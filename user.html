@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Select User</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    .user-button {
+      padding: 20px 40px;
+      margin: 20px;
+      font-size: 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background: #007bff;
+      color: white;
+    }
+    .user-button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Choose User</h1>
+  <button class="user-button" onclick="selectUser('gary')">Gary</button>
+  <button class="user-button" onclick="selectUser('trish')">Trish</button>
+
+  <script>
+    function selectUser(user) {
+      localStorage.setItem('currentUser', user);
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
