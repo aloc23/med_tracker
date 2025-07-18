@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Medication Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .collapsible {
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      padding: 10px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+    .collapsible:hover {
+      background-color: #0056b3;
+    }
+    .content {
+      padding: 0 10px;
+      display: none;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+    .med-group {
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 6px;
+      background: #f8f8f8;
+    }
+    .med-item input {
+      width: 60px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Medication Tracker</h1>
+
+    <form id="medForm">
+      <input type="text" id="medName" placeholder="Medication Name" required />
+      <input type="number" id="qty" placeholder="Quantity per dose (e.g. 1)" required />
+      <input type="number" id="dosesPerDay" placeholder="Doses per day (e.g. 2)" min="1" max="6" required />
+      <div id="timeInputs"></div>
+
+      <div class="recurrence-options">
+        <label><input type="radio" name="repeatType" value="recurring" id="recurring" /> Recurring Daily</label>
+        <label><input type="radio" name="repeatType" value="fixed" id="fixedPeriod" /> Add for fixed period</label>
+        <input type="number" id="weeks" placeholder="Number of weeks" min="1" style="display:none;" />
+      </div>
+
+      <button type="submit">➕ Add Medication</button>
+    </form>
+
+    <div class="button-bar">
+      <button onclick="viewFullList()">📋 View All Medications</button>
+      <button onclick="viewStock()">💊 View Stock</button>
+    </div>
+
+    <div id="fullMedList"></div><button onclick="viewWeeklyTimeline()">📈 Weekly Timeline View</button>
+
+    <button class="collapsible">📅 Calendar View</button>
+    <div class="content">
+      <div id="calendarLog" class="calendar-view"></div>
+    </div>
+
+    <button class="collapsible">📆 Today's Medications</button>
+    <div class="content">
+      <ul id="medList"></ul>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    document.querySelectorAll(".collapsible").forEach(btn => {
+      btn.addEventListener("click", function () {
+        this.classList.toggle("active");
+        const content = this.nextElementSibling;
+        content.style.display = content.style.display === "block" ? "none" : "block";
+      });
+    });
+  </script>
+</body>
+</html>

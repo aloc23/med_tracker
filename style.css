@@ -1,0 +1,126 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  color: #111;
+  margin: 0;
+  padding: 1em;
+  transition: background-color 0.3s, color 0.3s;
+}
+body.dark {
+  background-color: #121212;
+  color: #eee;
+}
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 1em;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+body.dark .container {
+  background: #1e1e1e;
+}
+form input, form button {
+  width: 100%;
+  margin-bottom: 0.75em;
+  padding: 0.75em;
+  font-size: 1em;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+form button {
+  background: #007bff;
+  color: white;
+  border: none;
+}
+.button-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin-bottom: 1em;
+}
+.button-bar button {
+  flex: 1;
+  padding: 0.6em;
+  font-size: 1em;
+  border-radius: 8px;
+  background: #28a745;
+  color: white;
+  border: none;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+li {
+  background: #e0ffe0;
+  margin: 0.5em 0;
+  padding: 0.75em;
+  border-radius: 8px;
+  position: relative;
+}
+button.done {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: green;
+  color: white;
+  border: none;
+  padding: 0.3em 0.6em;
+  border-radius: 5px;
+}
+.calendar-view {
+  margin-top: 1em;
+}
+.calendar-day {
+  background: #fff8dc;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  border-left: 4px solid #ffa500;
+  border-radius: 5px;
+}
+.calendar-day.today {
+  border-color: green;
+  background: #e0ffe0;
+}
+.toggle-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5em;
+}
+body.dark .calendar-day {
+  background: #333;
+  color: #eee;
+}
+@media (max-width: 600px) {
+  form input, form button {
+    font-size: 0.9em;
+  }
+  .button-bar {
+    flex-direction: column;
+  }
+}
+
+.calendar-day.complete {
+  background: #d4edda;
+  border-left: 5px solid #28a745;
+}
+.calendar-day.partial {
+  background: #fff3cd;
+  border-left: 5px solid #ffc107;
+}
+.calendar-day.missed {
+  background: #f8d7da;
+  border-left: 5px solid #dc3545;
+}
+.calendar-day.future {
+  background: #e2e3e5;
+  border-left: 5px solid #6c757d;
+}
+
+.calendar-day.complete { background: #d4edda; border-left: 5px solid #28a745; }
+.calendar-day.partial { background: #fff3cd; border-left: 5px solid #ffc107; }
+.calendar-day.missed  { background: #f8d7da; border-left: 5px solid #dc3545; }
+.calendar-day.future  { background: #e2e3e5; border-left: 5px solid #6c757d; }
